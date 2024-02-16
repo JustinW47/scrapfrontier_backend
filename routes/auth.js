@@ -17,7 +17,7 @@ router.get('/steam/return',
 	passport.authenticate('steam', { failureRedirect: '/' }),
 	function (req, res) {
 		console.log("==== res ====", res.req.user)
-		res.redirect(`${process.env.APP_BASE_URL}/?id=${res.req.user.id}`);
+		res.redirect(`${process.env.APP_BASE_URL}/?id=${res.req.user.id}&name=${res.req.user.displayName}&avatar=${res.req.user.photos[1].value}`);
 	});
 
 module.exports = router;
